@@ -4,7 +4,7 @@ import (
 	_ "fmt"
 )
 
-var BlankCard = card{}
+var BlankCard = Card{}
 
 const (
 	spades   = '♠'
@@ -40,12 +40,12 @@ type pixel struct {
 	Symbol rune
 }
 
-type card struct {
+type Card struct {
 	Suit  rune
 	Value int
 }
 
-func (c card) equal(c2 card) bool {
+func (c Card) equal(c2 Card) bool {
 	if c.Suit == c2.Suit && c.Value == c.Value {
 		return true
 	}

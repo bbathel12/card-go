@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-type Hand []card
+type Hand []Card
 
 func (h Hand) Len() int {
 	return len(h)
@@ -48,13 +48,13 @@ func (h Hand) show() {
 func (h Hand) Occurences() map[int]int {
 	var occurences map[int]int = make(map[int]int, 15)
 
-	for _, card := range h {
-		occurences[card.Value]++
+	for _, Card := range h {
+		occurences[Card.Value]++
 	}
 
 	return occurences
 }
 
-func (h Hand) highCard() card {
+func (h Hand) highCard() Card {
 	return h[len(h)-1]
 }

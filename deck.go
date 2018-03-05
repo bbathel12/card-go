@@ -6,7 +6,7 @@ import (
 )
 
 type Deck struct {
-	cards []card
+	Cards []Card
 }
 
 func NewDeck() (d *Deck) {
@@ -17,30 +17,30 @@ func NewDeck() (d *Deck) {
 		ten, jack, queen, king, ace}
 	for _, suit := range suits {
 		for _, value := range values {
-			d.cards = append(d.cards, card{suit, value})
+			d.Cards = append(d.Cards, Card{suit, value})
 		}
 	}
 	return
 }
 
 func (d *Deck) Shuffle() {
-	for i := 0; i < len(d.cards); i++ {
+	for i := 0; i < len(d.Cards); i++ {
 
 		rand.Seed(time.Now().UTC().UnixNano())
 
-		r := rand.Intn(len(d.cards))
+		r := rand.Intn(len(d.Cards))
 
-		d.cards[r], d.cards[i] = d.cards[i], d.cards[r]
+		d.Cards[r], d.Cards[i] = d.Cards[i], d.Cards[r]
 	}
 }
 
-func (d *Deck) Pop() (popped card, ok bool) {
+func (d *Deck) Pop() (popped Card, ok bool) {
 
-	if len(d.cards) >= 1 {
-		popped, d.cards = d.cards[0], d.cards[1:]
+	if len(d.Cards) >= 1 {
+		popped, d.Cards = d.Cards[0], d.Cards[1:]
 		ok = true
 	} else {
-		popped = card{}
+		popped = Card{}
 		ok = false
 	}
 
